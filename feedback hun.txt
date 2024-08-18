@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ügyfélszolgálati visszajelzés</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e8f0fe;
+        }
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .rating-section {
+            margin-bottom: 20px;
+        }
+        .rating-label {
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #444;
+        }
+        .stars {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+        .stars input[type="radio"] {
+            display: none;
+        }
+        .stars label {
+            font-size: 25px;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .stars input[type="radio"]:checked ~ label {
+            color: #f5c518;
+        }
+        .stars label:hover,
+        .stars label:hover ~ label {
+            color: #f5c518;
+        }
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ügyfélszolgálati visszajelzés</h1>
+        <form action="https://formsubmit.co/nagy.gabor222@gmail.com" method="POST">
+            <label for="name">Név (opcionális):</label>
+            <input type="text" id="name" name="name">
+
+            <label for="date">Látogatás dátuma:</label>
+            <input type="date" id="date" name="date" required>
+
+            <div class="rating-section">
+                <div class="rating-category">
+                    <div class="rating-label">Étel/Ital:</div>
+                    <div class="stars">
+                        <input type="radio" id="food-drink-5" name="food_drink" value="&#9733;&#9733;&#9733;&#9733;&#9733;" required><label for="food-drink-5">&#9733;</label>
+                        <input type="radio" id="food-drink-4" name="food_drink" value="&#9733;&#9733;&#9733;&#9733;" required><label for="food-drink-4">&#9733;</label>
+                        <input type="radio" id="food-drink-3" name="food_drink" value="&#9733;&#9733;&#9733;" required><label for="food-drink-3">&#9733;</label>
+                        <input type="radio" id="food-drink-2" name="food_drink" value="&#9733;&#9733;" required><label for="food-drink-2">&#9733;</label>
+                        <input type="radio" id="food-drink-1" name="food_drink" value="&#9733;" required><label for="food-drink-1">&#9733;</label>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <div class="rating-label">Szolgáltatás:</div>
+                    <div class="stars">
+                        <input type="radio" id="service-5" name="service" value="&#9733;&#9733;&#9733;&#9733;&#9733;" required><label for="service-5">&#9733;</label>
+                        <input type="radio" id="service-4" name="service" value="&#9733;&#9733;&#9733;&#9733;" required><label for="service-4">&#9733;</label>
+                        <input type="radio" id="service-3" name="service" value="&#9733;&#9733;&#9733;" required><label for="service-3">&#9733;</label>
+                        <input type="radio" id="service-2" name="service" value="&#9733;&#9733;" required><label for="service-2">&#9733;</label>
+                        <input type="radio" id="service-1" name="service" value="&#9733;" required><label for="service-1">&#9733;</label>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <div class="rating-label">Érték:</div>
+                    <div class="stars">
+                        <input type="radio" id="value-5" name="value" value="&#9733;&#9733;&#9733;&#9733;&#9733;" required><label for="value-5">&#9733;</label>
+                        <input type="radio" id="value-4" name="value" value="&#9733;&#9733;&#9733;&#9733;" required><label for="value-4">&#9733;</label>
+                        <input type="radio" id="value-3" name="value" value="&#9733;&#9733;&#9733;" required><label for="value-3">&#9733;</label>
+                        <input type="radio" id="value-2" name="value" value="&#9733;&#9733;" required><label for="value-2">&#9733;</label>
+                        <input type="radio" id="value-1" name="value" value="&#9733;" required><label for="value-1">&#9733;</label>
+                    </div>
+                </div>
+            </div>
+
+            <label for="feedback">Visszajelzés:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+            <input type="hidden" name="_subject" value="Új visszajelzés érkezett">
+            <input type="hidden" name="_captcha" value="false">
+
+            <button type="submit">Küldés</button>
+        </form>
+    </div>
+</body>
+</html>
